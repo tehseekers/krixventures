@@ -1,10 +1,1265 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Static Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Krix Ventures — Global commodities trading built on trust, precision, and detail. Navigating complex global commodity markets with unrivaled reliability.">
+  <title>Krix Ventures | Global Commodity Trading</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy-900: #0a1628;
+      --navy-800: #0f1f3a;
+      --navy-700: #152a4a;
+      --navy-600: #1b365d;
+      --navy-500: #234170;
+      --charcoal-900: #1a1a2e;
+      --charcoal-700: #2d2d44;
+      --gold-500: #c9a84c;
+      --gold-400: #d4b85c;
+      --gold-300: #e0c96d;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --white: #ffffff;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--white);
+      background-color: var(--navy-900);
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ========== HEADER ========== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+    }
+
+    .header.scrolled {
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 48px;
+      box-shadow: 0 1px 0 rgba(201, 168, 76, 0.1);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    /* LOGO: Replace src with your logo path */
+    .header-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .header-logo-text {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .header-logo-text span {
+      font-weight: 300;
+      letter-spacing: 4px;
+      display: block;
+      font-size: 10px;
+      color: var(--slate-400);
+      margin-top: 2px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav a {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--slate-300);
+      text-decoration: none;
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold-500);
+      transition: width var(--transition);
+    }
+
+    .nav a:hover {
+      color: var(--white);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 10px 24px;
+      border: 1px solid var(--gold-500);
+      color: var(--gold-500) !important;
+      font-size: 12px !important;
+      letter-spacing: 1.5px !important;
+      transition: background var(--transition), color var(--transition) !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-500);
+      color: var(--navy-900) !important;
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .mobile-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 140px 48px 100px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(21, 42, 74, 0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(15, 31, 58, 0.4) 0%, transparent 50%);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to top, var(--navy-900), transparent);
+    }
+
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image:
+        linear-gradient(30deg, var(--slate-300) 1px, transparent 1px),
+        linear-gradient(-30deg, var(--slate-300) 1px, transparent 1px);
+      background-size: 60px 104px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 28px;
+      letter-spacing: -1px;
+    }
+
+    .hero-tagline {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--slate-300);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: var(--gold-500);
+      color: var(--navy-900);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-300);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      border: 1px solid var(--slate-400);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ========== SECTION COMMON ========== */
+    .section {
+      padding: 120px 48px;
+      position: relative;
+    }
+
+    .section-dark {
+      background: var(--navy-800);
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--slate-400);
+      max-width: 560px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ========== ABOUT / SERVICES ========== */
+    .about-header {
+      margin-bottom: 72px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+
+    .service-card {
+      background: var(--navy-700);
+      padding: 48px 36px;
+      position: relative;
+      transition: background var(--transition), transform var(--transition);
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold-500);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      background: var(--navy-600);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--slate-400);
+      border-radius: 2px;
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--gold-500);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--slate-400);
+      line-height: 1.7;
+    }
+
+    .service-card .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      text-decoration: none;
+      font-weight: 500;
+      transition: gap var(--transition);
+    }
+
+    .service-card .card-link:hover {
+      gap: 12px;
+    }
+
+    /* ========== PORTFOLIO ========== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 72px;
+    }
+
+    .portfolio-card {
+      position: relative;
+      padding: 64px 48px;
+      background: linear-gradient(135deg, var(--navy-700), var(--navy-800));
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      transition: transform var(--transition);
+    }
+
+    .portfolio-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 22, 40, 0.9), transparent 60%);
+      z-index: 1;
+    }
+
+    .portfolio-card-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .portfolio-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      margin-bottom: 12px;
+    }
+
+    .portfolio-card h3 {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-card p {
+      font-size: 14px;
+      color: var(--slate-400);
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .portfolio-card .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      text-decoration: none;
+      font-weight: 500;
+      transition: gap var(--transition);
+    }
+
+    .portfolio-card .card-link:hover {
+      gap: 12px;
+    }
+
+    /* ========== METHODOLOGY ========== */
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 72px;
+    }
+
+    .method-card {
+      padding: 48px 40px;
+      background: var(--navy-800);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: border-color var(--transition);
+    }
+
+    .method-card:hover {
+      border-color: rgba(201, 168, 76, 0.2);
+    }
+
+    .method-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--slate-500);
+      margin-bottom: 20px;
+    }
+
+    .method-card h3 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .method-card p {
+      font-size: 14px;
+      color: var(--slate-400);
+      line-height: 1.7;
+    }
+
+    /* ========== HEADQUARTERS ========== */
+    .hq-section {
+      padding: 120px 48px;
+      background: var(--navy-900);
+    }
+
+    .hq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hq-content .section-title {
+      margin-bottom: 20px;
+    }
+
+    .hq-description {
+      font-size: 15px;
+      color: var(--slate-400);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hq-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .hq-stat-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--slate-500);
+      margin-bottom: 4px;
+    }
+
+    .hq-stat-value {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .hq-map {
+      position: relative;
+      aspect-ratio: 4/3;
+      background: var(--navy-700);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hq-map-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 60%, rgba(201, 168, 76, 0.1) 0%, transparent 40%),
+        linear-gradient(135deg, var(--navy-700), var(--navy-800));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hq-map-overlay svg {
+      width: 80%;
+      height: 80%;
+      opacity: 0.15;
+    }
+
+    .hq-map-dot {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--gold-500);
+      border-radius: 50%;
+      top: 55%;
+      left: 68%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .hq-map-dot::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 1px solid var(--gold-500);
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: pulse-ring 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.8); opacity: 0; }
+    }
+
+    /* ========== CONTACT ========== */
+    .contact-section {
+      padding: 120px 48px;
+      background: var(--navy-800);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .contact-info h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .contact-info > p {
+      font-size: 15px;
+      color: var(--slate-400);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .contact-detail {
+      margin-bottom: 28px;
+    }
+
+    .contact-detail-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--slate-500);
+      margin-bottom: 6px;
+    }
+
+    .contact-detail-value {
+      font-size: 15px;
+      color: var(--slate-200);
+    }
+
+    .contact-detail-value a {
+      color: var(--slate-200);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .contact-detail-value a:hover {
+      color: var(--gold-500);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--slate-500);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--navy-900);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      transition: border-color var(--transition);
+      outline: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--slate-500);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold-500);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-submit {
+      margin-top: 8px;
+      padding: 16px 36px;
+      background: var(--gold-500);
+      color: var(--navy-900);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: background var(--transition), transform var(--transition);
+      align-self: flex-start;
+    }
+
+    .form-submit:hover {
+      background: var(--gold-300);
+      transform: translateY(-2px);
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      padding: 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: var(--slate-500);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--slate-500);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--slate-300);
+    }
+
+    /* ========== ANIMATIONS ========== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== MOBILE NAV ========== */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 22, 40, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      font-size: 18px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--slate-200);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .mobile-nav a:hover {
+      color: var(--gold-500);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .section {
+        padding: 96px 32px;
+      }
+
+      .hero {
+        padding: 120px 32px 80px;
+      }
+
+      .hq-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .portfolio-grid,
+      .methodology-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        padding: 16px 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .section {
+        padding: 80px 24px;
+      }
+
+      .hero {
+        padding: 100px 24px 64px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: clamp(36px, 10vw, 56px);
+      }
+
+      .header {
+        padding: 16px 24px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hq-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 24px;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .hq-section,
+      .contact-section {
+        padding: 80px 24px;
+      }
+
+      .contact-grid {
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        text-align: center;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, welcome to my site</h1>
-  <p>This is my first GitHub Pages website</p>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <a href="#" class="header-logo">
+      <!-- LOGO: Replace src with your logo path -->
+      <div class="header-logo-text">Krix<span>Ventures</span></div>
+    </a>
+    <nav class="nav">
+      <a href="#trading">Trading</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Enquire Now</a>
+    </nav>
+    <div class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#trading" onclick="closeMobileNav()">Trading</a>
+    <a href="#portfolio" onclick="closeMobileNav()">Portfolio</a>
+    <a href="#approach" onclick="closeMobileNav()">Approach</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content fade-in">
+      <p class="hero-eyebrow">Industrial Excellence</p>
+      <h1>Global<br>Trading</h1>
+      <p class="hero-tagline">Built on Trust, Precision, and Detail. Navigating complex global commodity markets with unrivaled reliability.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Get Started</a>
+        <a href="#trading" class="btn-secondary">Explore Trading</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / Trading Section -->
+  <section class="section" id="trading">
+    <div class="container">
+      <div class="about-header fade-in">
+        <p class="section-eyebrow">Market Action</p>
+        <h2 class="section-title">Strategic Intelligence in Commodity Logistics.</h2>
+        <p class="section-subtitle">Delivering precision-driven solutions across global supply chains, from sourcing through to final-mile delivery.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Physical Metals Trading</h3>
+          <p>Comprehensive acquisition and distribution of base and precious metals, with institutional-grade risk management.</p>
+          <a href="#contact" class="card-link">Enquire <span>&rarr;</span></a>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>International Supplier Network</h3>
+          <p>Vertical partnership synergies across continents ensuring continuity and quality control at every node.</p>
+          <a href="#contact" class="card-link">Enquire <span>&rarr;</span></a>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Strategic Sourcing</h3>
+          <p>Data-driven procurement strategies tailored to specific manufacturing requirements across industries.</p>
+          <a href="#contact" class="card-link">Enquire <span>&rarr;</span></a>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Trade Coordination</h3>
+          <p>End-to-end management of complex trade flows, from regulatory compliance to final destination ports.</p>
+          <a href="#contact" class="card-link">Enquire <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="section section-dark" id="portfolio">
+    <div class="container">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Our Focus</p>
+        <h2 class="section-title" style="margin-left: auto; margin-right: auto;">Core Portfolio</h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card fade-in">
+          <div class="portfolio-card-content">
+            <p class="portfolio-label">Primary 01</p>
+            <h3>Stainless Steel</h3>
+            <p>Global procurement, distribution, and stockholding of high-grade stainless steels for industrial applications.</p>
+            <a href="#contact" class="card-link">Learn More <span>&rarr;</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card fade-in">
+          <div class="portfolio-card-content">
+            <p class="portfolio-label">Primary 02</p>
+            <h3>Aluminium</h3>
+            <p>Engineered agility. Covering the entire aluminium supply chain from smelter-certified, mill-to-mill efficient operations.</p>
+            <a href="#contact" class="card-link">Learn More <span>&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology / Values Section -->
+  <section class="section" id="approach">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-eyebrow">Our Approach</p>
+        <h2 class="section-title">The Krix Methodology.</h2>
+        <p class="section-subtitle">Four foundational pillars that define how we operate across every market, every transaction, every relationship.</p>
+      </div>
+      <div class="methodology-grid">
+        <div class="method-card fade-in">
+          <p class="method-label">Pillar 01</p>
+          <h3>Trusted Counterparties</h3>
+          <p>We engage only with established entities across our counterparty chain to mitigate credit liability. Rigorous vetting processes are standard.</p>
+        </div>
+        <div class="method-card fade-in">
+          <p class="method-label">Pillar 02</p>
+          <h3>Efficient Communication</h3>
+          <p>Real-time agility is the basis of our business. Our partners receive regular and consistent reporting to aid swift decision-making.</p>
+        </div>
+        <div class="method-card fade-in">
+          <p class="method-label">Pillar 03</p>
+          <h3>Long-term Business Value</h3>
+          <p>We don't optimise for single transactions. We build supply chain architectures that generate value across multi-year timeframes.</p>
+        </div>
+        <div class="method-card fade-in">
+          <p class="method-label">Pillar 04</p>
+          <h3>Disciplined Execution</h3>
+          <p>Precision in documentation, timing, and fulfilment. The nature of global trade demands rigorous operational standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Headquarters Section -->
+  <section class="hq-section">
+    <div class="container">
+      <div class="hq-grid">
+        <div class="hq-content fade-in">
+          <p class="section-eyebrow">Global Reach</p>
+          <h2 class="section-title">Headquartered in Singapore.</h2>
+          <p class="hq-description">Strategically positioned at the crossroads of global trade. Our Singapore headquarters connects our network across Asia-Pacific, the Middle East, and Europe — covering every major maritime corridor.</p>
+          <div class="hq-stats">
+            <div>
+              <p class="hq-stat-label">Primary Hub</p>
+              <p class="hq-stat-value">Singapore</p>
+            </div>
+            <div>
+              <p class="hq-stat-label">Active Channels</p>
+              <p class="hq-stat-value">12+ Nations</p>
+            </div>
+            <div>
+              <p class="hq-stat-label">Trade Volume</p>
+              <p class="hq-stat-value">35,000+ MT</p>
+            </div>
+            <div>
+              <p class="hq-stat-label">Global Ports</p>
+              <p class="hq-stat-value">120+ Routes</p>
+            </div>
+          </div>
+        </div>
+        <div class="hq-map fade-in">
+          <div class="hq-map-overlay">
+            <svg viewBox="0 0 200 100" fill="none">
+              <path d="M10,50 Q30,30 50,45 T90,40 T130,50 T170,45 T190,50" stroke="rgba(201,168,76,0.3)" stroke-width="0.5" fill="none"/>
+              <path d="M10,55 Q40,40 60,50 T100,48 T140,55 T180,50" stroke="rgba(201,168,76,0.2)" stroke-width="0.3" fill="none"/>
+              <path d="M20,60 Q50,50 80,55 T120,52 T160,58 T190,55" stroke="rgba(201,168,76,0.15)" stroke-width="0.3" fill="none"/>
+            </svg>
+          </div>
+          <div class="hq-map-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info fade-in">
+          <h2>Initiate Partnership.</h2>
+          <p>Connect with our trading desk for precision sourcing and logistics management.</p>
+          <div class="contact-detail">
+            <p class="contact-detail-label">Office</p>
+            <p class="contact-detail-value">60 Paya Lebar Road,<br>#07-03 Paya Lebar Square,<br>Singapore 409051</p>
+          </div>
+          <div class="contact-detail">
+            <p class="contact-detail-label">Email</p>
+            <p class="contact-detail-value"><a href="mailto:info@krixventures.com">info@krixventures.com</a></p>
+          </div>
+        </div>
+        <form class="contact-form fade-in" id="contactForm" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="organisation">Organisation</label>
+              <input type="text" id="organisation" name="organisation" placeholder="Company name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="" disabled selected>Select enquiry type</option>
+              <option value="trading">Trading Enquiry</option>
+              <option value="sourcing">Sourcing Request</option>
+              <option value="partnership">Partnership</option>
+              <option value="general">General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your requirements..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Submit Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-left">&copy; 2024 Krix Ventures. All Rights Reserved. Built in Precision.</p>
+    <nav class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Compliance</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Header scroll behavior
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile navigation
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    function closeMobileNav() {
+      mobileToggle.classList.remove('active');
+      mobileNav.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Fade-in on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Contact form handling
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Sent Successfully';
+      btn.style.background = '#2d6a4f';
+      btn.style.color = '#fff';
+      setTimeout(() => {
+        btn.textContent = 'Submit Enquiry';
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    });
+  </script>
 </body>
 </html>

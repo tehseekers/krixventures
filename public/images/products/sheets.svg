@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Stack of stainless steel sheets">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a303a"/><stop offset="0.6" stop-color="#3a414d"/>
+      <stop offset="0.6" stop-color="#555d69"/><stop offset="1" stop-color="#2b3039"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7edf2"/><stop offset="0.35" stop-color="#aeb8c2"/>
+      <stop offset="0.5" stop-color="#f6f9fb"/><stop offset="0.7" stop-color="#9aa5b0"/><stop offset="1" stop-color="#c8d0d8"/>
+    </linearGradient>
+    <linearGradient id="front" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfd6dd"/><stop offset="1" stop-color="#6e7881"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#59626c"/><stop offset="1" stop-color="#8a949e"/>
+    </linearGradient>
+    <linearGradient id="streak" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="0.75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#000" stop-opacity="0.55"/><stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="topclip"><polygon points="110,160 410,118 510,176 205,222"/></clipPath>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <ellipse cx="310" cy="318" rx="250" ry="26" fill="url(#shadow)"/>
+  <g transform="translate(0 38)">
+  <!-- left side face -->
+  <polygon points="110,160 205,222 205,286 110,224" fill="url(#side)"/>
+  <!-- front face -->
+  <polygon points="205,222 510,176 510,240 205,286" fill="url(#front)"/>
+  <!-- layers -->
+  <g stroke="#1f252b" stroke-width="0.9" opacity="0.55">
+    <line x1="205" y1="228.4" x2="510" y2="182.4"/><line x1="205" y1="234.8" x2="510" y2="188.8"/>
+    <line x1="205" y1="241.2" x2="510" y2="195.2"/><line x1="205" y1="247.6" x2="510" y2="201.6"/>
+    <line x1="205" y1="254" x2="510" y2="208"/><line x1="205" y1="260.4" x2="510" y2="214.4"/>
+    <line x1="205" y1="266.8" x2="510" y2="220.8"/><line x1="205" y1="273.2" x2="510" y2="227.2"/>
+    <line x1="205" y1="279.6" x2="510" y2="233.6"/>
+  </g>
+  <g stroke="#fff" stroke-width="0.8" opacity="0.28">
+    <line x1="205" y1="229.4" x2="510" y2="183.4"/><line x1="205" y1="242.2" x2="510" y2="196.2"/>
+    <line x1="205" y1="255" x2="510" y2="209"/><line x1="205" y1="267.8" x2="510" y2="221.8"/>
+  </g>
+  <g stroke="#10151a" stroke-width="0.9" opacity="0.5">
+    <line x1="110" y1="166.4" x2="205" y2="228.4"/><line x1="110" y1="179.2" x2="205" y2="241.2"/>
+    <line x1="110" y1="192" x2="205" y2="254"/><line x1="110" y1="204.8" x2="205" y2="266.8"/><line x1="110" y1="217.6" x2="205" y2="279.6"/>
+  </g>
+  <!-- top mirror face -->
+  <polygon points="110,160 410,118 510,176 205,222" fill="url(#top)"/>
+  <g clip-path="url(#topclip)">
+    <polygon points="250,100 300,100 250,260 200,260" fill="url(#streak)" opacity="0.9"/>
+    <polygon points="360,100 380,100 330,260 310,260" fill="url(#streak)" opacity="0.6"/>
+    <polygon points="110,160 410,118 410,124 110,166" fill="#fff" opacity="0.35"/>
+  </g>
+  <polygon points="110,160 410,118 510,176 205,222" fill="none" stroke="#f4f7fa" stroke-width="1.6" opacity="0.8"/>
+  <!-- protective film peel corner -->
+  <polygon points="470,155 510,176 492,186 462,168" fill="#9fc3e6" opacity="0.55"/>
+  </g>
+</svg>

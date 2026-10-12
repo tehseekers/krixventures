@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Bundle of stainless steel round bars">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a303a"/><stop offset="0.62" stop-color="#3a414d"/>
+      <stop offset="0.62" stop-color="#555d69"/><stop offset="1" stop-color="#2b3039"/>
+    </linearGradient>
+    <linearGradient id="cyl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6d7781"/><stop offset="0.22" stop-color="#e9eef2"/>
+      <stop offset="0.4" stop-color="#b7c0c8"/><stop offset="0.75" stop-color="#7f8993"/><stop offset="1" stop-color="#3f464e"/>
+    </linearGradient>
+    <radialGradient id="end" cx="0.4" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#f3f6f8"/><stop offset="0.6" stop-color="#b9c2ca"/><stop offset="1" stop-color="#848e98"/>
+    </radialGradient>
+    <linearGradient id="strap" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#20252a"/><stop offset="0.5" stop-color="#5a626b"/><stop offset="1" stop-color="#20252a"/>
+    </linearGradient>
+    <radialGradient id="shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#000" stop-opacity="0.55"/><stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="1"/></filter>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <ellipse cx="310" cy="338" rx="270" ry="24" fill="url(#shadow)"/>
+  <g><rect x="60" y="282" width="440" height="42" fill="url(#cyl)"/><ellipse cx="500" cy="303" rx="11" ry="21" fill="url(#end)"/></g>
+  <g><rect x="60" y="240" width="440" height="42" fill="url(#cyl)"/><ellipse cx="500" cy="261" rx="11" ry="21" fill="url(#end)"/></g>
+  <g><rect x="60" y="198" width="440" height="42" fill="url(#cyl)"/><ellipse cx="500" cy="219" rx="11" ry="21" fill="url(#end)"/></g>
+  <g><rect x="60" y="156" width="440" height="42" fill="url(#cyl)"/><ellipse cx="500" cy="177" rx="11" ry="21" fill="url(#end)"/></g>
+  <g><rect x="60" y="114" width="440" height="42" fill="url(#cyl)"/><ellipse cx="500" cy="135" rx="11" ry="21" fill="url(#end)"/></g>
+  <!-- drawn-finish lines & highlights -->
+  <g stroke="#fff" stroke-width="2" opacity="0.6" filter="url(#soft)">
+    <line x1="64" y1="293" x2="492" y2="293"/>
+    <line x1="64" y1="251" x2="492" y2="251"/>
+    <line x1="64" y1="209" x2="492" y2="209"/>
+    <line x1="64" y1="167" x2="492" y2="167"/>
+    <line x1="64" y1="125" x2="492" y2="125"/>
+  </g>
+  <!-- straps -->
+  <g>
+    <rect x="190" y="114" width="12" height="210" fill="url(#strap)"/>
+    <rect x="380" y="114" width="12" height="210" fill="url(#strap)"/>
+  </g>
+  <!-- color-coded end paint marks -->
+  <g fill="#c9a84c" opacity="0.85">
+    <circle cx="500" cy="303" r="3.5"/>
+    <circle cx="500" cy="219" r="3.5"/>
+    <circle cx="500" cy="135" r="3.5"/>
+  </g>
+</svg>
